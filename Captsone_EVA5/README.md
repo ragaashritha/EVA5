@@ -2,7 +2,8 @@
 
 ### Project Description
 In this project we are creating a CNN-Network that can do monocular depth estimation and object detection simultaneously.
-*Use case: *
+
+ **Use case:**
 For autonomous robots to detect objects and estimate the depth
 
 The potFork network
@@ -22,7 +23,7 @@ Output: 1. Depth estimate image
             
   ![Image of model](https://github.com/ragaashritha/EVA5/blob/main/Captsone_EVA5/pot_fork_model.png)
   
-  ###Encoder: 
+  ### Encoder: 
   Resnext-101 is used as the encoder part of the model. YOLOv3 had darknet, a form of densenet as the encoder part which is replaced with renext-101 for the current
   architecture.
   
@@ -32,14 +33,14 @@ Output: 1. Depth estimate image
   o3: Imagesize/16
   o4: Imagesize/32
   
-  ###YOLO decoder:
+  ### YOLO decoder:
   Outputs of the encoder are connected to the YOLO decoder through a bottleneck layer.The architecture had 9 anchors which are to be specified in the cfg file. 
   The output of YOLO is a convolutional feature map that contains the bounding box attributes along the depth of the feature map. The attributes bounding boxes predicted by a     cell are stacked one by one along each other. So, if you have to access the second bounding of cell at (5,6), then you will have to index it by map[5,6, (5+C): 2*(5+C)]. This   form is very inconvenient for output processing such as thresholding by a object confidence, adding grid offsets to centers, applying anchors etc.
   
   Detections happen at three scales, the dimensions of the prediction maps will be different. Although the dimensions of the three feature maps are different, the output
   processing operations to be done on them are similar. We resize the detections map to the size of the input image. The bounding box attributes here are sized according to the   feature map (say, 13 x 13). If the input image was 416 x 416, we multiply the attributes by 32, or the stride variable.
   
-  ###Depth decoder:
+  ### Depth decoder:
   The encoder outputs o1, o2, o3, o4 _out are passed into the decoder where they are connected to the respective upsampled blocks called feature fusion blocks through scratch
   layer. Feature fusion blocks are used to bring the resolution of the ouputs to the input resolution. ouput: [batch_size, img_size, img_size]
   
