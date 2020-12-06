@@ -19,6 +19,6 @@ Output: 1. Depth estimate image
             MIDAS: For depth estimation
             YOLOv3: For object detection
             
-  ![Image of model](https://octodex.github.com/images/yaktocat.png)
+  ![Image of model](https://github.com/ragaashritha/EVA5/blob/main/Captsone_EVA5/pot_fork_model.png)
             
-            ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+            
