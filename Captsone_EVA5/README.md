@@ -96,7 +96,7 @@ Output: 1. Depth estimate image
    Pot fork loss
    
    ![Image of model](https://github.com/ragaashritha/EVA5/blob/main/Captsone_EVA5/pot_fork_loss.PNG)
-   
+    
    
    
   
